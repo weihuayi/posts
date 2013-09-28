@@ -1,22 +1,24 @@
 ---
 layout: post
 title: Hello, world!
-date: '2013-07-07'
-description: 使用 Godaddy 和 Github Pages 建起网站的经验记录。
+date: '2013-09-28'
+description: 第一篇博客。
 categories: "Misc"
 tags: [Web]
 ---
 
-我自己早就想弄一个博客了，但是一直条件受限制。一是中考之前没有时间，现在中考之后终于有了时间;二是国内的博客服务都不好，我都不满意，国外的博客服务 Blogger, Wordpress 访问在中国大陆受限，最终我决定自己找空间。于是我就开始搭建我的博客。
+一直想找一个对数学支持比较好的博客平台, 但一直都不如愿. 无意中看到了[Maxfan](http://blog.maxfan.org/)在[Github](https://github.com/)建立的博客, 啊哈, 这正是我一直寻找的博客平台. 经过一翻折腾, 最终在Maxfan的热情帮助下完成了博客的搭建. 当然对没有接触过网站搭建的我来说, 还有很多东西需要学习. 
+
+让人惊讶的是Maxfan还只是一个高一的学生, 但他对数学和计算机知识的学习热情和掌握程度可以让很多数学研究生都自叹不如. 自古英雄出少年, 这句话说的真没错. 我这个80后, 以数学为职业, 都即将奔三了, 但还是成绩平平, 要加把劲了, 呵呵.
 
 
-先解决的是空间，因为缺钱，最好可以用免费又访问快的服务。于是乎，我用了 [GitHub](http://github.com) 的 User Page 服务，完全免费。不过这也让我学习了 git 这个版本控制系统，推荐看 [Pro Git](http://git-scm.com/book)，但貌似要跨栏。关于 [Github Pages](http://help.github.com/categories/20/articles) 的帮助写得也很详尽，我就不多言了。
+下面测试一下数学公式:
 
-<!--more-->
-不过，我在创建 ssh 连接，让 git 的 push 操作不用输入用户名和密码时，还是遇到了困难。[GitHub](https://help.github.com/articles/generating-ssh-keys) 上的说明似乎缺了一步。在设置完成后，要把在仓库的`.git/config`文件中的`url`选项改成：
+$$
+  \begin{eqnarray*}
+    a^2 + b^2 - c^2 & = & 2ab \cos{\phi}\\
+    2A & = & ab \sin{\phi}
+  \end{eqnarray*}
+$$
 
-    url = git@github.com:USERNAME/REPONAME.git
 
-域名注册是在 Godaddy.com，注册域名不用备案的`^_^`。这个域名提供商的最大好处就是可以用支付宝(Alipay)， Arch linux 需要安装 AUR 源中的`aliedit`插件（嘿嘿，支付宝这东西 Linux 也能用）。虽然我没有手机，只能用老妈的支付宝账号，但我还是觉得它挺方便的。
-
-博客选用了 Static Blog，Jekyll 这货是 GitHub 默认提供的工具，不过它相比 Ruhoh 也显得太原始了。Ruhoh 我还在研究中，以后再更新吧。
