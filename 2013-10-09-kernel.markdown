@@ -1,0 +1,94 @@
+---
+layout: post
+title: CGAL学习-几何核心类(2)
+date: '2013-10-09'
+description: 几何核心类中包含了基本的几何对象以及对这些对象的操作。
+categories: "CGAL"
+tags: [kernel]
+---
+
+## 几何核心（Geometry Kernel）类
+
+几何核心类中主要包含了大多数计算几何算法用到的几何对象及对这些对象的操作。
+
+## 例子
+下面给出一个练习的例子。把下面的内容复制到名为main.cpp的文件中， 编写注释中说明的代码。
+{% highlight cpp %}
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+//做下面练习时， 这里还需要加入适当的头文件
+#include <CGAL/intersections.h> //计算两个几何对象是否相交
+typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
+typedef K::FT FT;
+typedef K::Point_2 Point_2;
+typedef K::Segment_2 Segment_2;
+typedef K::Line_2 Line_2;
+typedef K::Vector_2 Vector_2;
+typedef K::Triangle_2 Triangle_2;
+typedef K::Circle_2 Circle_2;
+
+typedef K::Point_3 Point_3;
+typedef K::Segment_3 Segment_3;
+typedef K::Line_3 Line_3;
+typedef K::Vector_3 Vector_3;
+typedef K::Triangle_3 Triangle_3;
+typedef K::Sphere_3 Sphere_3;
+
+int main()
+{
+  Point_2 p1(0.0,0.0)，p2(1.0,0.0); //定义两个二维点
+  Vector_2 v1(1.0,1.0), v2(1.0,0.0); //定义两个二维向量
+  std::cout<<p1<<std::endl;
+  std::cout<<p2<<std::endl;
+
+  std::cout<<v1<<std::endl;
+  std::cout<<v2<<std::endl;
+
+  Point_2 p3 = p1 + v1;
+  Vector_2 v3 = p2 - p1;
+  std::cout<<p3<<std::endl;
+  std::cout<<v3<<std::endl;
+  
+  //给定一个二维或三维向量，计算向量的长度
+
+  //给定两个二维或三维向量，计算向量的点乘、叉乘及夹角
+  
+  //给定两个二维点或三维点，计算两点的距离，中点
+ 
+  //给定一组二维点或三维点，每一个点给一个权重， 然后计算它们的重心
+
+  //给定一个二维三角形或三维三角形， 计算其三边边长， 面积， 外接圆圆心
+
+  //给定一个圆和一个点， 判断点相对于圆的位置关系：圆内，圆外还是圆上
+
+  //给定一个球和一个点， 判断点相对于球的位置关系：球内，球外还是球上
+
+  //给定一两条线段， 判断两条线段是否相交， 如果相交算出交点
+
+  return 0;
+}
+{% endhighlight %}
+
+把下面的内容复制到名为CMakeLists.txt的文件中。
+
+{% highlight bash %}
+project( Kernel_test)
+cmake_minimum_required(VERSION 2.6.2) 
+set(SRC main.cpp)
+find_package(CGAL QUIET COMPONENTS Core ) 
+if ( CGAL_FOUND ) #如果找到CGAL
+  include( ${CGAL_USE_FILE} ) 
+  include( CGAL_CreateSingleSourceCGALProgram )
+  create_single_source_cgal_program(${SRC})
+else() # 找不到时输出错误信息
+    message(STATUS "This program requires the CGAL library, and will not be compiled.")
+endif()
+{% endhighlight %}
+
+把上面两个文件放入同一个目录下， 在终端中运行如下命令：
+{% highlight bash %}
+$ cmake .
+$ make
+$ ./main
+{% endhighlight %}
+就可以输出下相应的结果。
+
