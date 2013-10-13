@@ -1,11 +1,12 @@
 ---
 layout: post
-title: CGAL学习-安装 (1)
-date: '2013-10-09'
-description: CGAL是一个C++编写的开源计算几何算法库。
+title: "CGAL学习-安装 (1)"
 categories: "CGAL"
 tags: [install, cmake]
+description: |
+  CGAL是一个C++编写的开源计算几何算法库。它的目标是以C++库的形式提供易用、高效和可靠的计算几何算法。
 ---
+{% include JB/setup %}
 
 ## CGAL介绍
 [CGAL](http://www.cgal.org/)（Computational Geometry Algorithms Library）是一个

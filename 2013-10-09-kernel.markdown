@@ -1,15 +1,16 @@
 ---
 layout: post
-title: CGAL学习-几何核心类(2)
-date: '2013-10-09'
-description: 几何核心类中包含了基本的几何对象以及对这些对象的操作。
-categories: "CGAL"
+title: "CGAL学习-几何核心类(2)"
+categories: cgal
 tags: [kernel]
+description: |
+  几何核心（Geometry Kernel）类中包含了基本的几何对象以及对这些对象的操作。在CGAL中几何核心往往以Traits class的方式通过模板参数传递给更具体的计算几何数据结构和算法使用。
 ---
+{% include JB/setup %}
 
-## 几何核心（Geometry Kernel）类
+## 几何核心类
 
-几何核心类中主要包含了大多数计算几何算法用到的几何对象及对这些对象的操作。
+几何核心（Geometry Kernel）类中主要包含了大多数计算几何算法用到的几何对象及对这些对象的操作。
 
 ## 例子
 下面给出一个练习的例子。把下面的内容复制到名为main.cpp的文件中， 编写注释中说明的代码。

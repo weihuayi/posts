@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Git常用命令总结
-date: '2013-09-29'
-description: 对自己使用Git过程遇到的命令进行总结.
+title: "Git常用命令总结"
 categories: develop
 tags: [Git, Version Control]
+description: |
+  对自己使用Git过程遇到的命令进行总结.
 ---
-
+{% include JB/setup %}
 
 [Git](https://github.com/)是一个分布式版本控制软件, 网上有大量的介绍文章, 如[yulongfei的专栏](http://blog.csdn.net/gemmem/article/details/7290125), 这里仅对自己在使用过程中常用的命令总结一下.
 
