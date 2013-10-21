@@ -10,6 +10,7 @@ description: |
 ---
 {% include JB/setup %}
 
+##
 一直想找一个对数学支持比较好的博客平台, 但一直都不如愿. 无意中看到了[Maxfan](http://blog.maxfan.org/)在[Github](https://github.com/)建立的博客, 啊哈, 这正是我一直寻找的博客平台。
 
 经过一翻折腾, 最终在Maxfan的热情帮助下完成了博客的搭建。 当然对没有接触过网站搭建的我来说, 还有很多东西需学习。 

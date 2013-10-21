@@ -22,11 +22,16 @@ $$
 \end{equation}
 $$
 
+下面在二维情形下推导方程$\eqref{eq:lve0}$。我们用零水平集$\phi(x,y,t)=0$来表示
+移动界面，而且希望界面上的点在移动过程中，始终在这个$\phi(x,y,t)$的零水平集上，则有
+
 $$
 \begin{equation}\label{eq:lve1}
 \frac{d}{dt}\phi(x(t),y(t),t)=0
 \end{equation}
 $$
+
+由链式法则，可得：
 
 $$
 \begin{eqnarray}
@@ -36,9 +41,10 @@ $$
 \end{eqnarray}
 $$
 
-其中${\bf V}= (x_t, y_t)$.
+其中${\bf V}= (x_t, y_t)$。方程$\eqref{eq:lvc}$就是所谓的水平集方程，描述了水平集在外部速度场中的
+移动过程。
 
-因为水平集$\phi(x,y,t)=c$的单位法向：
+因为水平集$\phi(x,y,t)=c$的单位法向为：
 
 $$
 \begin{equation}\label{eq:un}
@@ -46,13 +52,16 @@ $$
 \end{equation}
 $$
 
-我们可以重写法向速度场为
+方程$\eqref{eq:lvc}$中的${\bf V}\cdot\nabla\phi$项, 可以理解为只有速度场${\bf V}(x,y,t)$
+在水平集的法向方向分量才会影响水平集的移动，因此可以引入下面的法向速度场：
 
 $$
 \begin{equation}\label{eq:nvf}
 V_{\bf n}={\bf\rm V}(x,y,t)\cdot\frac{\nabla\phi(x,y,t)}{\nabla\phi(x,y,t)}.
 \end{equation}
 $$
+
+水平集方程的形式也可改写为：
 
 $$
 \begin{equation}\label{eq:lvf}
