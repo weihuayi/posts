@@ -47,9 +47,9 @@ $ sudo apt-get install gdb #调试器
 $ sudo apt-get install cmake-qt-gui cmake # 软件构建系统 
 # QT相关的软件, 其中qtcreator是一个类似于VC++图形编程环境
 $ sudo apt-get install qtcreator qt4-dev-tools qt4-doc qt4-qtconfig qt4-demos qt4-designer
-$ sudo apt-get install libgmp-dev libgmpxx4ldbl libgmp3c2 libmpfr-dev
+$ sudo apt-get install libgmp-dev libmpfr-dev
 $ sudo apt-get install geomview
-$ sudo apt-get install libqglviewer-qt3-dev libqglviewer-qt4-dev
+$ sudo apt-get install libqglviewer-dev
 {% endhighlight %}
 
 下载[Boost](http://www.boost.org/users/download/), 进入解压目录:
