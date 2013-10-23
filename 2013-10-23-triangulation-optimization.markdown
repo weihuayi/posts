@@ -26,7 +26,7 @@ $$
 ####　Centroidal Patch Triangulation(CPT) 光滑
 
 $$
-\begin{equation}\lable{eq:L}
+\begin{equation}\lable{eq:CPT}
 X_i^{New} = \frac{1}{Ｎ}\sum\limits_{j=1}^N　b_j.
 \end{equation}
 $$
@@ -36,7 +36,7 @@ $$
 ####   Optimal Delaunay Triangulation(ODT) 光滑
 
 $$
-\begin{equation}\lable{eq:L}
+\begin{equation}\lable{eq:ODT}
 X_i^{New} = \frac{1}{Ｎ}\sum\limits_{j=1}^N　c_j.
 \end{equation}
 $$
