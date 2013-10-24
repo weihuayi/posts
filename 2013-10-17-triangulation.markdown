@@ -5,7 +5,7 @@ categories: "CGAL"
 tags: [triangulation, c++]
 mathjax: true
 description: |
-  Triangulation_2$<$Traits,TDS$>$ 是CGAL中描述二维三角形剖分的一个模板类。实例化时, 它的第一个模板参数要传入一个几何核心类, 第二个模板参数是一个三角剖分的数据结构类（这个参数有一个默认的值）。这个模板类定义了三角剖分的基本用户接口， 它也是其它三角剖分类（如Delaunay_triangulation_2、Regular_triangulation_2）的基类。 因此它是基于CGAL进行二维三角形网格生成和优化算法开发，必须要掌握好这个类。
+  Triangulation_2 &lt Traits,TDS &gt 是CGAL中描述二维三角形剖分的一个模板类。实例化时, 它的第一个模板参数要传入一个几何核心类, 第二个模板参数是一个三角剖分的数据结构类（这个参数有一个默认的值）。这个模板类定义了三角剖分的基本用户接口， 它也是其它三角剖分类（如Delaunay_triangulation_2、Regular_triangulation_2）的基类。 因此它是基于CGAL进行二维三角形网格生成和优化算法开发，必须要掌握好这个类。
 ---
 {% include JB/setup %}
 
