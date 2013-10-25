@@ -9,10 +9,10 @@ description: |
 ---
 {% include JB/setup %}
 
-## 三角形网格优化方法简介
+##三角形网格优化方法简介
 三角形优化方法通常分为两类：光滑化方法和拓扑优化方法。前一种方法优化网格节点的坐标位置；后一种方法优化网格节点的连接关系。
 
-### 光滑化方法
+###光滑化方法
 给定一个网格节点$x_i$, 设$\{ x_j\}_{j=1}^{N_i}$为与节点$x_i$ 相邻的节点集合, 
 $\{\tau_j\}_{j=1}^{N}$ 为以$x_i$为顶点的三角形集合。下面给出不同光滑方法，新坐标$x_i^{New}$的计算公式。
 
@@ -67,12 +67,39 @@ $$
 而一个**稳定**的CVT是$\mathcal{E}$的一个局部极小值。$\mathcal{E}$对$z_i$求导数，可得：
 
 $$
-\frac{\partial}{\partial z_i}\mathcal{E}({\bf z},{\bf V}({\bf z})) =  
+\mathcal{F}_i:=\frac{\partial}{\partial z_i}\mathcal{E}({\bf z},{\bf V}({\bf z})) = 2\int_{V_i}\rho(x)(z_i-x)
+{\rm d}x
 $$
 
+取$\mathcal{F}_i=0$, 可得：
 
+$$
+z_i= \frac{\int_{V_i}\rho(x)x{\rm d}x}{\int_{V_i}\rho(x){\rm d}x}.
+$$
+
+引入**Lloyd map**${\bf T}:=(T_1,T_2,\ldots,T_N)$, 其中$T_i$定义如下：
+
+$$
+T_i(z_i)= \frac{\int_{V_i}\rho(x)x{\rm d}x}{\int_{V_i}\rho(x){\rm d}x}.
+$$
+
+给定一组初始的生成子${\bf z}_0$, Llyod光滑方法定义如下：
+
+1. 构造${\bf V}_k({\bf z}_k)$.
+2. 更新${\bf z}_{k+1}={\bf T}({\bf z}_k)$.
 
 ###拓扑优化方法
+
+三角形网格的拓扑优化是通过**换边**实现的. 当两信相邻三角形组成一个凸四边形，就可以进行换边，见下图：
+
+{% image cgal/edgeflip.png %}
+[Edge flip](http://dit-archives.epfl.ch/SCR96/scr8-page4.html).
+{% endimage %}
+
+为了优化拓扑，可以依据不同的准则来换边，如
+
+1. Delaunay准则：两个相邻三角形对角之和小于180.
+2. 使得每个内部节点周围的度尽量接近6. 
 
 ##练习
 基于　Triangulation_2 模板类实现上述优化方法,　并对网格例子进行优化,　比较优化结果。

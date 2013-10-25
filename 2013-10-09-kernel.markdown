@@ -27,15 +27,29 @@ CGAL中还有一个比较简单的几何核心类型 [CGAL::Cartesian](http://ww
 * [CGAL::Exact_predicates_exact_constructions_kernel](http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Kernel_23_ref/Class_Exact_predicates_exact_constructions_kernel.html#Cross_link_anchor_331)
 * [CGAL::Exact_predicates_exact_constructions_kernel_with_sqrt](http://www.cgal.org/Manual/latest/doc_html/cgal_manual/Kernel_23_ref/Class_Exact_predicates_exact_constructions_kernel_with_sqrt.html#Cross_link_anchor_332)
 
-如果大家感兴趣，可以自己进行了解。 
+如果大家感兴趣，可以自己进行了解。
+
 
 
 ## 例子
 下面给出一个练习的例子。把下面的内容复制到名为main.cpp的文件中， 编写注释中说明的代码。
+
 {% highlight cpp %}
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
 //做下面练习时， 这里还需要加入适当的头文件
 #include <CGAL/intersections.h> //计算两个几何对象是否相交
+typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
+typedef K::FT FT;
+typedef K::Point_2 Point_2;
+typedef K::Segment_2 Segment_2;
+typedef K::Line_2 Line_2;
+typedef K::Vector_2 Vector_2;
+typedef K::Triangle_2 Triangle_2;
+typedef K::Circle_2 Circle_2;
+```
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+//做下面练习时， 这里还需要加入适当的头文件
+#include <CGAL/intersections.h> //计算两个几何对象是否相交 
 typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
 typedef K::FT FT;
 typedef K::Point_2 Point_2;
@@ -54,7 +68,7 @@ typedef K::Sphere_3 Sphere_3;
 
 int main()
 {
-  Point_2 p1(0.0,0.0)，p2(1.0,0.0); //定义两个二维点
+  Point_2 p1(0.0,0.0), p2(1.0,0.0); //定义两个二维点
   Vector_2 v1(1.0,1.0), v2(1.0,0.0); //定义两个二维向量
   std::cout<<p1<<std::endl;
   std::cout<<p2<<std::endl;
@@ -111,3 +125,4 @@ $ ./main
 {% endhighlight %}
 就可以输出下相应的结果。
 
+    
