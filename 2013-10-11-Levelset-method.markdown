@@ -48,7 +48,7 @@ $$
 
 $$
 \begin{equation}\label{eq:un}
-{\bf n}(x,y,t)=\frac{\nabla\phi(x,y,t)}{\nabla\phi(x,y,t)}.
+{\bf n}(x,y,t)=\frac{\nabla\phi(x,y,t)}{|\nabla\phi(x,y,t)|}.
 \end{equation}
 $$
 
@@ -57,7 +57,7 @@ $$
 
 $$
 \begin{equation}\label{eq:nvf}
-V_{\bf n}={\bf\rm V}(x,y,t)\cdot\frac{\nabla\phi(x,y,t)}{\nabla\phi(x,y,t)}.
+V_{\bf n}={\bf\rm V}(x,y,t)\cdot\frac{\nabla\phi(x,y,t)}{|\nabla\phi(x,y,t)|}.
 \end{equation}
 $$
 

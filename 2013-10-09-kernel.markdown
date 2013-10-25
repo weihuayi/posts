@@ -103,7 +103,7 @@ int main()
 
 把下面的内容复制到名为CMakeLists.txt的文件中。
 
-{% highlight bash %}
+```bash
 project( Kernel_test)
 cmake_minimum_required(VERSION 2.6.2) 
 set(SRC main.cpp)
@@ -115,14 +115,15 @@ if ( CGAL_FOUND ) #如果找到CGAL
 else() # 找不到时输出错误信息
     message(STATUS "This program requires the CGAL library, and will not be compiled.")
 endif()
-{% endhighlight %}
+```
 
 把上面两个文件放入同一个目录下， 在终端中运行如下命令：
-{% highlight bash %}
+
+```bash
 $ cmake .
 $ make
 $ ./main
-{% endhighlight %}
+```
 就可以输出下相应的结果。
 
     

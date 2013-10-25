@@ -1,0 +1,62 @@
+---
+layout: post
+title: "Ubuntu下博客写作环境搭建"
+categories: computer
+tags: [Jekyll,github,emacs]
+description: |
+   这里记录下自己博客写作环境的搭建过程.
+---
+{% include JB/setup %}
+
+
+##安装Jekyll
+[Jekyll](http://jekyllrb.com/)是一个简单免费的静态网站和博客生成工具,　生成的博客可以免费托管的[Github](https://github.com). 这样你可使用一种轻量级标记语言[Markdwon](http://zh.wikipedia.org/wiki/Markdown)以纯文本的方式写博客,　然后再转换成有效的网页文档.　
+
+```bash
+$ sudo apt-get install rubygems rake pandoc ruby-switch
+$ sudo apt-get install python-pygments
+$ sudo apt-get install ruby1.9.1-dev
+$ sudo gem install jekyll
+$ sudo gem install jekyll-scholar
+$ sudo gem install pandoc-ruby therubyracer less yuicssmin safe_yaml
+```
+
+##安装emacs
+我emacs写博客文章
+添加emacs的PPA:
+
+```bash
+$ sudo add-apt-repository ppa:cassou/emacs
+$ sudo apt-get update
+```
+
+安装最新版本的emacs:
+
+```bash
+$ sudo apt-get install emacs-snapshot-el emacs-snapshot-gtk emacs-snapshot
+```
+
+安装ibus-el,　使得emacs可以使用ibus的中文输入法:
+
+```bash
+$ sudo apt-get install ibus-el
+```
+
+在home目录下,　用hg命令clone自己的emacs配置文件到目录".emacs.d":
+
+```bash
+$ hg clone https://huayiwei@bitbucket.org/huayiwei/emacs.d .emacs.d
+```
+
+这样在第一次启动emacs时,　emacs会读取.emacs.d下的init.el,　安装需要的emacs包.
+
+##Clone自己的博客仓库到本地
+
+```bash
+$ git clone https://github.com/weihuayi/blog.git blog
+$ cd blog/
+$ git clone https://github.com/weihuayi/posts.git _posts
+$ cd ../
+$ git clone https://github.com/weihuayi/weihuayi.github.io.git _site
+```
+
