@@ -2,9 +2,9 @@
 layout: post
 title: "Ubuntu下博客写作环境搭建"
 categories: computer
-tags: [Jekyll,github,emacs]
+tags: [Jekyll,github,emacs,hg]
 description: |
-   这里记录下自己博客写作环境的搭建过程.
+   这里记录下自己在Ubuntu下博客写作环境的搭建过程.
 ---
 {% include JB/setup %}
 
@@ -49,6 +49,8 @@ $ hg clone https://huayiwei@bitbucket.org/huayiwei/emacs.d .emacs.d
 ```
 
 这样在第一次启动emacs时,　emacs会读取.emacs.d下的init.el,　安装需要的emacs包.
+
+关于hg的介绍,　见[xwuxin](http://www.xwuxin.com/)的[hg(Mercurial)使用参考](http://www.xwuxin.com/?p=1179).
 
 ##Clone自己的博客仓库到本地
 
