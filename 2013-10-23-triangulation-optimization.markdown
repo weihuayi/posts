@@ -5,7 +5,7 @@ categories: "CGAL"
 tags: [triangulation, optimization, c++]
 mathjax: true
 description: |
-   借助前面介绍的　Triangulation_2 &lt Traits,TDS &gt 模板类，来实现一些标准的三角形网格优化方法：点光滑化和拓扑优化方法（换边）。
+   借助前面介绍的`Triangulation_2<lt Traits,TDS>` 模板类，来实现一些标准的三角形网格优化方法：点光滑化和拓扑优化方法（换边）。
 ---
 {% include JB/setup %}
 
@@ -101,6 +101,13 @@ $$
 1. Delaunay准则：两个相邻三角形对角之和小于180.
 2. 使得每个内部节点周围的度尽量接近6. 
 
+`Triangulation_2<Traits,TDS>` 中成员函数`flip(Face_handle,int)`实现换边操作.
+
 ##练习
-基于　Triangulation_2 模板类实现上述优化方法,　并对网格例子进行优化,　比较优化结果。
+请基于`Triangulation_2<Traits,TDS>`模板类实现上述优化方法, 每个方法要对应一个模块。
+
+[这里](/res/data/mesh.off)是一个off格式网格文件, 使用`Triangulation_2<Traits,TDS>`
+的成员函数`Vertex_handle file_input(std::istream& is)`可以读取这个文件.
+
+**注:上面给出的网格文件中包含了一个0号点(没有坐标信息), 及所有边界边和这个0号点组成的无限三角形面.**
 
