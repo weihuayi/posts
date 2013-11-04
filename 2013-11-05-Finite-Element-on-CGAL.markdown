@@ -14,23 +14,24 @@ description: |
 考虑如下D氏边界条件的Poisson方程:
 
 $$
-\begin{eqnarray}\label{eq:P}
-\Delta u(x) &=& f(x),\text{ on } \Omega.\\
+\begin{eqnarray}
+-\Delta u(x) &=& f(x),\text{ on } \Omega.\label{eq:P}\\
 u|_{\partial\Omega} &=& 0.
 \end{eqnarray}
 $$
 
 
-##有限元
-有限元方法是一种基于PDE(partial differential equations)的变分形式(variational formulation)求解PDE近似解的方法.
+##Galerkin方法
+有限元方法是一种基于 PDE (partial differential equations) 的变分形式 (variational formulation) 求解PDE近似解的方法.
 
-任找一个边界为零且**足够光滑**的函数$v$. 这里的**足够光滑**是指函数和它的
-一阶导数在$\Omega$上都是$L^2$可积的, 所有这些函数实际组成一个函数空间, 记为 $H_0^1(\Omega)$.
-用这样的函数$v$同乘以方程$\eqref{eq:P}$的两端, 然后做分部积分可得: 
+给定一个边界恒为零函数$v$, 同乘以方程$\eqref{eq:P}$的两端, 然后做分部积分可得: 
 
 $$
 \int_{\Omega}\nabla u\cdot\nabla v\mathrm{d}x = \int_{\Omega}fv\mathrm{d}x.
 $$
+
+当然上面的分部积分要想成立, $v$还必须**足够光滑**--函数本身及其一阶导数都在$\Omega$上$L^2$可积, 满足该条件的函数组成
+一函数空间, 记$H_0^1(\Omega)$.
 
 原问题就转化为: 求解 $u\in H_0^1(\Omega)$, 满足
 
@@ -79,12 +80,54 @@ $$
 u_h = \sum\limits_{i=1}^N u_i\phi_i.
 $$
 
+##三角形网格和重心坐标
 
-##准备
+给定三个不在同一条直线上的二维点$\mathbf{x}_1 :=(x_1,y_1)$, $\mathbf{x}_2 :=(x_2,y_2)$和$\mathbf{x}_3 :=(x_3,y_3)$, 则向量$\mathbf{x}_1\mathbf{x}_2$和$\mathbf{x}_1\mathbf{x}_3$线性无关. 这等价于矩阵
 
-* 用 `Triangulation_2<GT,TDS>` 存储计算区域上的网格, 负责网格中单元和节点的访问.
-* 用 Eigen 软件包中的稀疏矩阵和向量存储有限元离散的系数矩阵和右端向量, 并调用Eigen
-  中的解法器求解离散的代数系统.
+$$
+A = 
+\begin{pmatrix}
+x_1 & x_2 & x_3 \\
+y_1 & y_2 & y_3 \\
+1   & 1   & 1 
+\end{pmatrix}
+$$
+
+非奇异. 任给一点$\mathbf{x}:=(x,y)$, 求解下面的线性方程组
+
+$$
+A 
+\begin{pmatrix}
+\lambda_1 \\
+\lambda_2\\
+\lambda_3  
+\end{pmatrix}
+=\begin{pmatrix}
+x \\
+y\\
+1  
+\end{pmatrix}
+$$
+
+可得唯一的一组解$\lambda_1,\lambda_2,\lambda_3$, 因此对任意二维点$\mathbf{x}$, 有
+
+$$
+\mathbf{x}=\lambda_1(\mathbf{x})\mathbf{x}_1 + \lambda_2(\mathbf{x})\mathbf{x}_2 + \lambda_3(\mathbf{x})\mathbf{x}_3 
+\text{ with } \lambda_1(\mathbf{x}) + \lambda_2(\mathbf{x}) + \lambda_3(\mathbf{x}) = 1. 
+$$
+
+$\lambda_1,\lambda_2,\lambda_3$称为点$\mathbf{x}$关于点$\mathbf{x}_1,\mathbf{x}_2$和$\mathbf{x}_3$的**重心坐标**. 重心坐标
+有它相应的几何意义. 记$\mathbf{x}_1,\mathbf{x}_2$和$\mathbf{x}_3$组成的三角形为$\tau$, 把$\tau$的顶点$\mathbf{x}_i$换$\mathbf{x}$
+得到的三角形记为$\tau_i(\mathbf{x})$, $i=1,2,3$, 则由克莱姆法则可得
+
+$$
+\lambda_i = {|\tau_i(\mathbf{x})| \over |\tau|}.
+$$
+
+其中$|\cdot|$表示三角形的面积.
+
+
+
 
 ##稀疏矩阵和向量
 
